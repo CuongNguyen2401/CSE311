@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="persistence-data">
+		<class>com.fastfood.entity.ProductEntity</class>
+		<class>com.fastfood.entity.RoleEntity</class>
+		<class>com.fastfood.entity.AccountEntity</class>
+		<class>com.fastfood.entity.CategoryEntity</class>
+		<class>com.fastfood.entity.OrderEntity</class>
+		<class>com.fastfood.entity.ItemEntity</class>
+		<class>com.fastfood.entity.ImageEntity</class>
+		<class>com.fastfood.entity.NewsEntity</class>
+	</persistence-unit>
+</persistence>
+
