@@ -143,7 +143,7 @@ async function fetchAndDisplayUserChat() {
     });
     chatArea.scrollTop = chatArea.scrollHeight;
     
-}
+};
 
 
 function onError() {

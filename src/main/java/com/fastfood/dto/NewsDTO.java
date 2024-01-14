@@ -11,8 +11,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CategoryDTO  extends AbstractDTO<CategoryDTO>{
- 
-	private String type;
-	private String status;
+public class NewsDTO extends AbstractDTO<NewsDTO>{
+
+		private String title;
+		private String description;
+		private AccountDTO accountDTO;
+		private String status;
 }

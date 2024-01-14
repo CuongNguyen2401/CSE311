@@ -1,15 +1,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- SIDEBAR -->
 <section id="sidebar">
-    <a href="admin-home" class="brand">
+    <a href="home" class="brand">
         <i class='bx bxs-smile'></i>
         <span class="text">AdminPage</span>
     </a>
     <ul class="side-menu top">
         <li>
-            <a href="admin-home">
+            <a href="/admin/home">
                 <i class='bx bxs-shopping-bag-alt'></i>
                 <span class="text">My Store</span>
+            </a>
+        </li>
+         <li>
+            <a href="/admin/category">
+                <i class='bx bxs-calculator'></i>
+                <span class="text">Categories</span>
+            </a>
+        </li>
+        <li>
+            <a href="/admin/news">
+                <i class='bx bxs-calculator'></i>
+                <span class="text">News</span>
             </a>
         </li>
         <li>

@@ -22,6 +22,9 @@ public class NewsEntity extends BaseEntity  {
 	
 	@Column(name = "title")
 	private String title;
+	
+	@Column(name = "status")
+	private String status;
 
 	@Column(name = "description", columnDefinition = "TEXT")
 	private String description;
@@ -29,6 +32,8 @@ public class NewsEntity extends BaseEntity  {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "account_id")
 	private AccountEntity accountEntity;
+	
+	
 	
 
 }

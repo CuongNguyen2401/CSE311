@@ -26,7 +26,10 @@ public class CategoryEntity extends BaseEntity {
 
 	@OneToMany(mappedBy = "category")
 	private List<ProductEntity> products = new ArrayList<>();
-
+	
+	@Column(name= "status")
+	private String status;
+	
 	
 
 }

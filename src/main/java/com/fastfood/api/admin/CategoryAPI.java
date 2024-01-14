@@ -34,18 +34,18 @@ public class CategoryAPI {
 		return new ResponseEntity<>(cateService.findByType(name), HttpStatus.OK);
 	}
 
-//	@PostMapping("/category")
-//	public ResponseEntity<CategoryDTO> save(@RequestBody CategoryDTO categoryDTO) {
-//		return new ResponseEntity<>(cateService.save(categoryDTO), HttpStatus.OK);
-//	}
-//
-//	@DeleteMapping("/category/{type}")
-//	public ResponseEntity<ApiResponse> disableCategoryByType(@PathVariable String type) {
-//		return new ResponseEntity<>(cateService.disableCategory(type), HttpStatus.OK);
-//	}
-//
-//	@PostMapping("/category/{type}")
-//	public ResponseEntity<ApiResponse> activeCategoryByType(@PathVariable String type) {
-//		return new ResponseEntity<>(cateService.activeCategory(type), HttpStatus.OK);
-//	}
+	@PostMapping("/category")
+	public ResponseEntity<CategoryDTO> save(@RequestBody CategoryDTO categoryDTO) {
+		return new ResponseEntity<>(cateService.save(categoryDTO), HttpStatus.OK);
+	}
+
+	@DeleteMapping("/category/{id}")
+	public ResponseEntity<ApiResponse> disableCategoryByID(@PathVariable Long id) {
+		return new ResponseEntity<>(cateService.softDeleteCategory(id), HttpStatus.OK);
+	}
+
+	@PostMapping("/category/{id}")
+	public ResponseEntity<ApiResponse> activeCategoryByID(@PathVariable Long id) {
+		return new ResponseEntity<>(cateService.activeCategory(id), HttpStatus.OK);
+	}
 }
