@@ -1,16 +1,18 @@
 package com.fastfood.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.fastfood.dto.ApiResponse;
 import com.fastfood.dto.CategoryDTO;
 import com.fastfood.entity.CategoryEntity;
-import com.fastfood.entity.OrderEntity;
 import com.fastfood.mapper.CategoryMapper;
 import com.fastfood.repository.CategoryRepository;
 import com.fastfood.service.ICategoryService;
@@ -34,13 +36,19 @@ public class CategoryService implements ICategoryService {
 	}
 
 	@Override
-	public List<CategoryDTO> findAll() {
-		List<CategoryEntity> categories = categoryRepository.findAll();
-		List<CategoryDTO> result = categories.stream().map(categoryEntity -> categoryMapper.mapToDTO(categoryEntity))
-				.collect(Collectors.toList());
-		return result;
+	public List<CategoryDTO> findAllbyPage(Pageable pageable) {
+		Page<CategoryEntity> cate = categoryRepository.findAll(pageable);
+		
+		
+		List<CategoryDTO> categories = new ArrayList<>();
+		for (CategoryEntity categoryEntity : cate.getContent()) {
+			categories.add(categoryMapper.mapToDTO(categoryEntity));
+		}
+		
+	
+		return categories;
 	}
-
+	
 	@Override
 	public CategoryDTO findByType(String type) {
 		CategoryEntity categoryEntity = categoryRepository.findByType(type);
@@ -89,6 +97,26 @@ public class CategoryService implements ICategoryService {
 					.http(HttpStatus.ALREADY_REPORTED)
 					.message("Active category failed!")
 					.build();
+	}
+
+	@Override
+	public int getTotalCate() {
+		// TODO Auto-generated method stub
+		return (int) categoryRepository.count();
+	}
+
+	@Override
+	public List<CategoryDTO> findAll() {
+
+		return categoryRepository.findAll().stream()
+	            .map(categoryMapper::mapToDTO)
+	            .collect(Collectors.toList());
+	}
+
+	@Override
+	public CategoryDTO findByID(Long id) {
+		// TODO Auto-generated method stub
+		return categoryMapper.mapToDTO(categoryRepository.findOne(id));
 	}
 
 

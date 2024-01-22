@@ -17,9 +17,7 @@ import lombok.Setter;
 public class AccountDTO extends AbstractDTO<AccountDTO> {
 
 	private String username;
-	@JsonIgnore
 	private String password;
-
 	private String fullName;
 	private String phoneNumber;
 	private String address;

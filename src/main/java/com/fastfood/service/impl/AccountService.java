@@ -52,7 +52,6 @@ public class AccountService implements IAccountService {
 			return accountMapper.mapToDTO(userRepository.save(accountEntity));
 		}
 		return null;
-
 	}
 
 	@Override

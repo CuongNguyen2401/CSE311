@@ -1,7 +1,5 @@
 package com.fastfood.service;
 
-import java.util.Optional;
-
 import com.fastfood.dto.AccountDTO;
 
 public interface IAccountService {

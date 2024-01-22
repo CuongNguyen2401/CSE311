@@ -59,8 +59,8 @@
 						<th>ID</th>
 						<th>Title</th>
 						<th>Description</th>
-						<th>Author</th>
 						<th>Created Day</th>
+						<th>Status</th>
 
 						<th>Functions</th>
 					</tr>
@@ -89,50 +89,7 @@
 	</main>
 	<script src="/template/js/adminRenderNews.js"></script>
 
-	<script>
-		function deleteProduct(id) {
-
-			$.confirm({
-				title : 'Confirm!',
-				content : 'Simple confirm!',
-				buttons : {
-					confirm : function() {
-						$.alert('Confirmed!');
-						doDeleteById(id)
-					},
-					cancel : function() {
-						$.alert('Canceled!');
-					},
-					somethingElse : {
-						text : 'Something else',
-						btnClass : 'btn-blue',
-						keys : [ 'enter', 'shift' ],
-						action : function() {
-							$.alert('Something else?');
-						}
-					}
-				}
-			});
-
-		}
-		function doDeleteById(id) {
-			$.ajax({
-				url : '/admin/api/v1/products/' + id,
-				type : 'DELETE',
-				contentType : 'application/json',
-				success : function(result) {
-					document.getElementById("message").value = "success_delete"
-					window.onload = renderProducts();
-				},
-				error : function(error) {
-					document.getElementById("message").value = "error_delete"
-					let msg = document.getElementById("message");
-					createToast(msg.value);
-					msg.value = "";
-				}
-			});
-		}
-	</script>
+	
 
 </body>
 </html>
